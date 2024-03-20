@@ -1,3 +1,3 @@
 # HexBuilder
 
-A procedural generated hexagons grid
+A procedural generator of hexagons grids
