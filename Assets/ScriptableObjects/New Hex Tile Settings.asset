@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef5c9c78c20554469d0b7f1a4e79317, type: 3}
   m_Name: New Hex Tile Settings
   m_EditorClassIdentifier: 
-  FreeTile: {fileID: 8198172429739925262, guid: 9590d2b19c16b73459076cf8ddc0350a, type: 3}
-  Garbage: {fileID: 4811299266845900161, guid: 9a088a5f364c8924d94927568eacc646, type: 3}
-  Asteroid: {fileID: 8314916899528161266, guid: 4ab25ef89b32a64408196d7906b0dc52, type: 3}
+  LandTile: {fileID: 4627177237100164191, guid: a6fe9970314c3c644be21219a9ad6d02, type: 3}
+  WaterTile: {fileID: 4633041697194578458, guid: 245995d8d8853d146a98e55b205feffa, type: 3}
+  MountainsTile: {fileID: 337180250469558107, guid: b15b03cd302ee9944a9bf0ea231b969e, type: 3}

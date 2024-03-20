@@ -8,24 +8,32 @@ public class HexTileSettings : ScriptableObject
 
     public enum TileType
     {
-        Free,
-        Garbage,
-        Asteroid
+        Land,
+        Water,
+        Mountains,
+        Hill,
+        Forest
     }
-    public GameObject FreeTile;
-    public GameObject Garbage;
-    public GameObject Asteroid;
+    public GameObject LandTile;
+    public GameObject WaterTile;
+    public GameObject MountainsTile;
+    public GameObject HillTile;
+    public GameObject ForestTile;
 
     public GameObject GetTile(TileType tileType)
     {
         switch (tileType)
         {
-            case TileType.Free:
-                return FreeTile;
-            case TileType.Garbage:
-                return Garbage;
-            case TileType.Asteroid:
-                return Asteroid;
+            case TileType.Land:
+                return LandTile;
+            case TileType.Water:
+                return WaterTile;
+            case TileType.Mountains:
+                return MountainsTile;
+            case TileType.Hill:
+                return HillTile;
+            case TileType.Forest:
+                return ForestTile;
         }
         return null;
     }
