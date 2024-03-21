@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1145663671908941281}
   - component: {fileID: 4056033108715942468}
   - component: {fileID: 2282511194368263822}
+  - component: {fileID: 7419687413500350790}
   m_Layer: 0
   m_Name: stone-mountain
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7419687413500350790
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337180250469558107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2834531536156421332, guid: 1de7de63ec9fd114fb38febae043607f, type: 3}

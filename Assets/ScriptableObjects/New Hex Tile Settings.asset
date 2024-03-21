@@ -15,3 +15,5 @@ MonoBehaviour:
   LandTile: {fileID: 4627177237100164191, guid: a6fe9970314c3c644be21219a9ad6d02, type: 3}
   WaterTile: {fileID: 4633041697194578458, guid: 245995d8d8853d146a98e55b205feffa, type: 3}
   MountainsTile: {fileID: 337180250469558107, guid: b15b03cd302ee9944a9bf0ea231b969e, type: 3}
+  HillTile: {fileID: 8831170960241967038, guid: eddc624890e2b7b438061e0f0be56725, type: 3}
+  ForestTile: {fileID: 8266103612642171002, guid: 6ee02055321146c4886d70c1fafa13fc, type: 3}
