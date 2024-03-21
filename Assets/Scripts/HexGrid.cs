@@ -11,10 +11,12 @@ public class HexGrid : MonoBehaviour
 
     public HexTileSettings settings;
 
-    private Dictionary<TileType, float> thresholds = new Dictionary<TileType, float> {
+    public Dictionary<TileType, float> thresholds = new Dictionary<TileType, float> {
+        {TileType.Island, 0.04f },
         { TileType.Water, 0.3f },
-        { TileType.Forest, 0.4f },
+        { TileType.Forest, 0.36f },
         { TileType.Land, 0.75f },
+        {TileType.HillForest,0.77f },
         { TileType.Hill, 0.85f },
         { TileType.Mountains, 1.0f }
 

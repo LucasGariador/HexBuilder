@@ -17,7 +17,8 @@ public class HexTileCollider : MonoBehaviour, ITargetSelectable
 
     public void OnHighlightTarget()
     {
-        TileManager.instance.OnHighlitedTile(hextile);
+        Color color = Color.gray;
+        meshRenderer.material.color = color;
     }
 
     public void OnSelectTarget()

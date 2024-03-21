@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5215597707546826662}
   - component: {fileID: 9209401565065287683}
   - component: {fileID: 6353077862449573065}
+  - component: {fileID: 5021468961842995778}
   m_Layer: 0
   m_Name: grass-hill
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6538903991835684241, guid: f0aa6e43a3bd26d429c76c1a1dcf5c63, type: 3}
+  - {fileID: 2100000, guid: 61bd94f603ed75348816124e15f871ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5021468961842995778
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839776234522791196}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1223088035735100204, guid: f0aa6e43a3bd26d429c76c1a1dcf5c63, type: 3}

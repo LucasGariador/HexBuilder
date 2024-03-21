@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class CameraSelecionRaycaster : MonoBehaviour
 {
-    private Ray ray;
     private Camera _camera;
     private ITargetSelectable target;
-
+    public bool selectionActivated = true;
     private void Start()
     {
         _camera = GetComponent<Camera>();
@@ -13,7 +12,7 @@ public class CameraSelecionRaycaster : MonoBehaviour
 
     void Update()
     {
-        ray = _camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
@@ -21,7 +20,10 @@ public class CameraSelecionRaycaster : MonoBehaviour
 
             if (objectHit.TryGetComponent<ITargetSelectable>(out target))
             {
-                target.OnHighlightTarget();
+                if (selectionActivated)
+                {
+                    target.OnHighlightTarget();
+                }
                 if(Input.GetMouseButtonDown(0))
                 {
                     target.OnSelectTarget();

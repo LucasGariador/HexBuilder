@@ -17,3 +17,5 @@ MonoBehaviour:
   MountainsTile: {fileID: 337180250469558107, guid: b15b03cd302ee9944a9bf0ea231b969e, type: 3}
   HillTile: {fileID: 8831170960241967038, guid: eddc624890e2b7b438061e0f0be56725, type: 3}
   ForestTile: {fileID: 8266103612642171002, guid: 6ee02055321146c4886d70c1fafa13fc, type: 3}
+  IslandTile: {fileID: 7774913852084757134, guid: 12bdb84c49cc0a048bf8e52ca78416e3, type: 3}
+  HillForestTile: {fileID: 4839776234522791196, guid: c85b6ffbdc0f8d24e9878a566da3d3a5, type: 3}

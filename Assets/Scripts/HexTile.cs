@@ -6,20 +6,17 @@ using UnityEngine;
 public class HexTile : MonoBehaviour
 {
     public HexTileSettings settings;
-
     public HexTileSettings.TileType tileType;
-
     public bool isEmpty = true; 
-
     public GameObject tile;
-
     private bool isDirty = false;
 
     public Vector2Int offsetCoordinate;
     public Vector3Int cubeCoordinate;
-    public MeshFilter meshFilter;
 
     public List<HexTile> neighbours;
+
+    public HexTileSettings.TileType NewType = HexTileSettings.TileType.Castle;
 
     private void OnValidate()
     {
@@ -46,10 +43,10 @@ public class HexTile : MonoBehaviour
         }
     }
 
-
-    public void RollTileType()
+    public void ChangeTileOnAnimation()
     {
-        tileType = (HexTileSettings.TileType)(Random.Range(0, 3));
+        tileType = NewType;
+        isDirty = true;
     }
 
     public void AddTile()

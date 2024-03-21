@@ -2,14 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
-    public static TileManager instance;
+    public static TileManager instance; //Singleton
     public GameObject selector;
+    public GameObject stats;
     public Dictionary<Vector3Int, HexTile> tiles;
-    Transform[] childs;
+    private Transform[] childs;
+    private HexTile SelectedTile;
+
+    public AnimatorController _controller;
+    public AnimationClip _clip;
 
     private void Awake()
     {
@@ -70,19 +76,28 @@ public class TileManager : MonoBehaviour
         tiles.Add(tile.cubeCoordinate, tile);   
     }
 
-    public void OnHighlitedTile(HexTile tile)
-    {
-        if (tile == null) return;
-
-            Color color = new Color(1, 1, 1, .8f);
-            tile.transform.GetComponentInChildren<MeshRenderer>().material.color = color;
-
-    }
-
     public void OnSelectedTile(HexTile tile)
     {
-        selector.transform.position = tile.transform.position;
+        if(tile.tileType == HexTileSettings.TileType.Land)
+        {
+            stats.SetActive(false);
+            stats.SetActive(true);
+            tile.NewType = HexTileSettings.TileType.Castle;
+            _controller.animationClips[0].events[0].functionName = nameof(HexTile.ChangeTileOnAnimation);
+            Animator anim = tile.gameObject.AddComponent<Animator>();
+            anim.runtimeAnimatorController = _controller;
+            // set stats info
+            //Button to build
+        }
+        else
+        {
+            if(stats.activeSelf == true)
+            {
+                stats.SetActive(false);
+            }
+        }
     }
+
 
     public HexTile ReturnLastHexTile()
     {
