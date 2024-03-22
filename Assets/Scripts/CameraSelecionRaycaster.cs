@@ -12,9 +12,12 @@ public class CameraSelecionRaycaster : MonoBehaviour
 
     void Update()
     {
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        if (TileManager.instance.settlementIsUp)
+            return;
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+        if (Physics.Raycast(ray, out RaycastHit hit) && !isOverUI)
         {
             Transform objectHit = hit.transform;
 

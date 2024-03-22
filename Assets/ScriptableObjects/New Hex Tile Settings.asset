@@ -19,3 +19,13 @@ MonoBehaviour:
   ForestTile: {fileID: 8266103612642171002, guid: 6ee02055321146c4886d70c1fafa13fc, type: 3}
   IslandTile: {fileID: 7774913852084757134, guid: 12bdb84c49cc0a048bf8e52ca78416e3, type: 3}
   HillForestTile: {fileID: 4839776234522791196, guid: c85b6ffbdc0f8d24e9878a566da3d3a5, type: 3}
+  SmelterTile: {fileID: 3849884906428108230, guid: fd228e27a5d27b945a6e4960b1296c7f, type: 3}
+  VillageTile: {fileID: 5638773855005210994, guid: 5af2d39fb35fc6342963d2a6feae6626, type: 3}
+  WallTile: {fileID: 3957630824603790953, guid: 513d0adc45f543541954d1964a75eecf, type: 3}
+  WizardTowerTile: {fileID: 1370452728089817297, guid: a62f594aa5b7c4042af8f50b39d93561, type: 3}
+  ArcheryTile: {fileID: 4559208274466188070, guid: a074c89b6fb739b439ac830c86cb99ea, type: 3}
+  HouseTile: {fileID: 3147794404949264271, guid: 1ebf3383bfcdf964298f8d9ad72a0c75, type: 3}
+  CastleTile: {fileID: 64960149004588188, guid: 317b71d730155f14c8b3b0b655b163c1, type: 3}
+  SheepTile: {fileID: 900046012008416954, guid: 63ddc3373505d3c4899cb0d1c07778e6, type: 3}
+  PortTile: {fileID: 2988780117932473831, guid: 80eb2a2c651dc264cb65589035d3a7db, type: 3}
+  MineTile: {fileID: 6127225068724012773, guid: 49174b3fde9db7f499be8256e493da29, type: 3}
