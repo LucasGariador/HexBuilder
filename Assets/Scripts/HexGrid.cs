@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using static HexTileSettings;
@@ -11,21 +11,12 @@ public class HexGrid : MonoBehaviour
 
     public HexTileSettings settings;
 
-    public Dictionary<TileType, float> thresholds = new Dictionary<TileType, float> {
-        {TileType.Island, 0.04f },
-        { TileType.Water, 0.3f },
-        { TileType.Forest, 0.36f },
-        { TileType.Land, 0.75f },
-        {TileType.HillForest,0.77f },
-        { TileType.Hill, 0.85f },
-        { TileType.Mountains, 1.0f }
-
-        // Agrega más umbrales y tipos de tile según sea necesario
-    };
+    public Dictionary<Vector2Int, Biomes> biomeType = new Dictionary<Vector2Int, Biomes>();
 
     public void Clear()
     {
         List<GameObject> children = new List<GameObject>();
+        biomeType.Clear();
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -43,6 +34,24 @@ public class HexGrid : MonoBehaviour
     {
         Clear();
 
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
+
+
+        foreach (KeyValuePair<Vector2Int, Biomes> items in biomeType)
+        {
+            print("You have " + items.Value + " " + items.Key);
+
+        }
+
         float xOffset = Random.Range(-10000f, 10000f);
         float yOffset = Random.Range(-10000f, 10000f);
 
@@ -50,12 +59,13 @@ public class HexGrid : MonoBehaviour
         {
             for (int x = 0; x < gridSize.x; x++)
             {
-                // Utilizar el valor de offset junto con las coordenadas de la cuadrícula para generar el ruido Perlin
-                float perlinValue = Mathf.PerlinNoise((x + xOffset) * 0.1f, (y + yOffset) * 0.1f);
-                Debug.Log(perlinValue);
-                TileType tileType = GetTileType(perlinValue);
+                Biomes biome = GetClosestControl(new Vector2(x,y));
 
-                GameObject tile = new GameObject($"Hex C{x}, R{y}");
+                // Offset value is used to get diferents positions on the noise
+                float perlinValue = Mathf.PerlinNoise((x + xOffset) * 0.1f, (y + yOffset) * 0.1f);
+                TileType tileType = GetTileType(perlinValue, biome);
+
+                GameObject tile = new($"Hex C{x}, R{y}");
                 HexTile hextile = tile.AddComponent<HexTile>();
                 hextile.settings = settings;
                 hextile.tileType = tileType;
@@ -68,17 +78,34 @@ public class HexGrid : MonoBehaviour
         }
     }
 
-    private TileType GetTileType(float perlinValue)
+    private Biomes GetClosestControl(Vector2 vector2)
     {
-        // Busca el tipo de tile correspondiente al valor de ruido Perlin en los umbrales definidos
-        foreach (var threshold in thresholds)
+        Biomes biome = Biomes.GreenLand;
+        float distance = 100f;
+        for (int index = 0; index < biomeType.Count; index++)
+        {
+            var item = biomeType.ElementAt(index);
+            float newDistance = Vector2.Distance(item.Key, vector2);
+            if (newDistance<=distance)
+            {
+                distance = newDistance;
+                biome = item.Value;
+            }
+        }
+        return biome;
+    }
+
+        private TileType GetTileType(float perlinValue, Biomes biome)
+        {
+        // Returns the corresponding tiletype, acording to his threshold value an biome type
+        foreach (var threshold in settings.GetThreshold(biome))
         {
             if (perlinValue < threshold.Value)
             {
                 return threshold.Key;
             }
         }
-        return TileType.Land; // Por defecto, devuelve Land si no se encuentra un tipo correspondiente
+        return TileType.Land; // Returns Land by DEFAULT
     }
 
     public static Vector3Int OffsetToCube(Vector2Int offset)

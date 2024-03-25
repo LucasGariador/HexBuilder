@@ -29,3 +29,11 @@ MonoBehaviour:
   SheepTile: {fileID: 900046012008416954, guid: 63ddc3373505d3c4899cb0d1c07778e6, type: 3}
   PortTile: {fileID: 2988780117932473831, guid: 80eb2a2c651dc264cb65589035d3a7db, type: 3}
   MineTile: {fileID: 6127225068724012773, guid: 49174b3fde9db7f499be8256e493da29, type: 3}
+  SandTile: {fileID: 7641639769397343714, guid: ca897fc5fdd6cfb4b8c823a1a829a317, type: 3}
+  SandDesertTile: {fileID: 5109059633489557236, guid: 4010d6ae59a62894fb8ac3f31db41b8f, type: 3}
+  SandRockseTile: {fileID: 5212509519807209332, guid: 94c82d7ac5d2c7043b76624ca45575cc, type: 3}
+  StoneRocksTile: {fileID: 8914755717266039321, guid: 288917265ba15f8439f6726ddbab3700, type: 3}
+  StoneTile: {fileID: 6151301620048539209, guid: 68140d008b245814488b168727b9ea0e, type: 3}
+  DesertRatio: 0
+  GreenLandRatio: 0
+  StoneRatio: 0
