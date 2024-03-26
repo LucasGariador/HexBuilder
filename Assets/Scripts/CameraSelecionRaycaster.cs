@@ -12,8 +12,6 @@ public class CameraSelecionRaycaster : MonoBehaviour
 
     void Update()
     {
-        if (TileManager.instance.settlementIsUp)
-            return;
 
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
@@ -23,10 +21,6 @@ public class CameraSelecionRaycaster : MonoBehaviour
 
             if (objectHit.TryGetComponent<ITargetSelectable>(out target))
             {
-                if (selectionActivated)
-                {
-                    target.OnHighlightTarget();
-                }
                 if(Input.GetMouseButtonDown(0))
                 {
                     target.OnSelectTarget();

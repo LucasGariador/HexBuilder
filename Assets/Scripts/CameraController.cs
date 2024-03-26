@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
     
     void Start()
     {
-        CalculateCameraLimits();
+        Invoke(nameof(CalculateCameraLimits), 1f);
     }
 
     void Update()
@@ -34,6 +34,11 @@ public class CameraController : MonoBehaviour
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, minCameraPosition.x, maxCameraPosition.x);
         clampedPosition.z = Mathf.Clamp(clampedPosition.z, minCameraPosition.z, maxCameraPosition.z);
         transform.position = clampedPosition;
+
+        if(horizontalInput != 0 || verticalInput != 0)
+        {
+            TileManager.instance.DeactivateUi();
+        }
 
     }
 

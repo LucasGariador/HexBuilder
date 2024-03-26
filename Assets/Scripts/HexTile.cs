@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,5 +54,13 @@ public class HexTile : MonoBehaviour
     {
         tile = GameObject.Instantiate(settings.GetTile(tileType), transform.position, transform.rotation, transform);
         tile.AddComponent<HexTileCollider>();
+    }
+
+    internal void IsSelected(bool v)
+    {
+        if (v)
+        {
+
+        }
     }
 }

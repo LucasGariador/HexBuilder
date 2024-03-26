@@ -8,7 +8,7 @@ public class HexGrid : MonoBehaviour
     [Header("Grid Settings")]
     public Vector2Int gridSize;
     public float radius = 1f;
-
+    public int AmountBiomes;
     public HexTileSettings settings;
 
     public Dictionary<Vector2Int, Biomes> biomeType = new Dictionary<Vector2Int, Biomes>();
@@ -34,17 +34,7 @@ public class HexGrid : MonoBehaviour
     {
         Clear();
 
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-        biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome(Random.Range(0, 101)));
-
+        AddBiomeControll(AmountBiomes);
 
         foreach (KeyValuePair<Vector2Int, Biomes> items in biomeType)
         {
@@ -75,6 +65,23 @@ public class HexGrid : MonoBehaviour
                 hextile.cubeCoordinate = OffsetToCube(hextile.offsetCoordinate);
                 tile.transform.SetParent(transform, true);
             }
+        }
+        TileManager.instance.InitializeGrid();
+    }
+
+    private void AddBiomeControll(int amountBiomes)
+    {
+        try
+        {
+            for (int i = 0; i < amountBiomes; i++)
+            {
+                biomeType.Add(new(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)), settings.GetRandomBiome());
+            }
+        }
+        catch
+        {
+            biomeType.Clear();
+            AddBiomeControll(amountBiomes);
         }
     }
 

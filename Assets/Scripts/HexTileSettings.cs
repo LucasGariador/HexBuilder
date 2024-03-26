@@ -1,8 +1,5 @@
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "NewTile/GenerationSettings")]
@@ -63,12 +60,12 @@ public class HexTileSettings : ScriptableObject
     public GameObject StoneRocksTile;
     public GameObject StoneTile;
 
-    [Range(0, 98)]
-    public float DesertRatio;
-    [Range(0, 98)]
-    public float GreenLandRatio;
-    [Range(0, 98)]
-    public float StoneRatio;
+    [Range(0, 100)]
+    public int DesertRatio;
+    [Range(0, 100)]
+    public int GreenLandRatio;
+    [Range(0, 100)]
+    public int StoneRatio;
 
     public GameObject GetTile(TileType tileType)
     {
@@ -111,19 +108,17 @@ public class HexTileSettings : ScriptableObject
         };
     }
 
-    public Biomes GetRandomBiome(int v)
+    public Biomes GetRandomBiome()
     {
         float totalPriority = DesertRatio + StoneRatio + GreenLandRatio;
 
-        // Calcula los porcentajes en función de las prioridades
         float percentageBiome1 = (float)DesertRatio / totalPriority;
         float percentageBiome2 = (float)StoneRatio / totalPriority;
         float percentageBiome3 = (float)GreenLandRatio / totalPriority;
 
-        // Genera un número aleatorio entre 0 y 1
+
         float randomValue = UnityEngine.Random.value;
 
-        // Asigna biomas en función de los porcentajes calculados
         if (randomValue < percentageBiome1)
         {
             return Biomes.Desert;
@@ -136,7 +131,6 @@ public class HexTileSettings : ScriptableObject
         {
             return Biomes.GreenLand;
         }
-        return null;
     }
 
     public Dictionary<TileType, float> thresholdsGreenLand = new Dictionary<TileType, float> { 

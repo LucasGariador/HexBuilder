@@ -1,11 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Net;
-using UnityEditor.Animations;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+
+
 
 public class TileManager : MonoBehaviour
 {
@@ -19,13 +17,15 @@ public class TileManager : MonoBehaviour
     [HideInInspector]
     public bool settlementIsUp = false;
 
-    public AnimatorController _controller;
+    public RuntimeAnimatorController _controller;
     public AnimationClip _clip;
     public GameObject buildButton;
-
     private void Awake()
     {
         instance = this;
+    }
+    public HexGrid InitializeGrid()
+    {
         tiles = new Dictionary<Vector3Int, HexTile>();
 
         HexTile[] hexTiles = gameObject.GetComponentsInChildren<HexTile>();
@@ -39,9 +39,12 @@ public class TileManager : MonoBehaviour
             List<HexTile> neighbours = GetNeighbours(hexTile);
             hexTile.neighbours = neighbours;
         }
+        Invoke(nameof(StartManager), 0.5f);
+
+        return GetComponent<HexGrid>();
     }
 
-    private void Start()
+    private void StartManager()
     {
         childs = new Transform[transform.childCount];
 
@@ -50,7 +53,6 @@ public class TileManager : MonoBehaviour
             childs[i] = transform.GetChild(i);
         }
 
-        buildButton.GetComponent<Button>().onClick.AddListener(StartSettlement);
     }
 
     private List<HexTile> GetNeighbours(HexTile tile)
@@ -91,17 +93,19 @@ public class TileManager : MonoBehaviour
             stats.SetActive(false);
             stats.SetActive(true);
 
+            if (selectedTile != null)
+                selectedTile.IsSelected(false);
+            
             selectedTile = tile;
+            selectedTile.IsSelected(true);
+            selector.SetActive(true);
+            selector.transform.position = new Vector3(tile.transform.position.x, selector.transform.position.y, tile.transform.position.z);
+            int water = GetClosestDistance(tile, HexTileSettings.TileType.Water);
+            int rock = Math.Min(GetClosestDistance(tile, HexTileSettings.TileType.StoneRocks), GetClosestDistance(tile, HexTileSettings.TileType.Hill));
+            int forest = GetClosestDistance(tile, HexTileSettings.TileType.Forest);
 
-            int water = 0, rock = 0, forest = 0;
-
-            water = GetClosestDistance(tile, HexTileSettings.TileType.Water);
-            rock = Math.Min(GetClosestDistance(tile, HexTileSettings.TileType.Mountains), GetClosestDistance(tile, HexTileSettings.TileType.Hill));
-            forest = GetClosestDistance(tile, HexTileSettings.TileType.Forest);
-
-            stats.GetComponentInChildren<TMP_Text>().text = $"Distance to water source:<color=#FF0000> {water} </color>\nDistance to Minerals: {rock}\nDistance to wood source {forest}";
+            stats.GetComponentInChildren<TMP_Text>().text = $"Resources\nWater:{GetColoredTextByDistance(water)}\nMinerals: {GetColoredTextByDistance(rock)}\nWood{GetColoredTextByDistance(forest)}";
             buildButton.SetActive(true);
-            //Button to build
         }
         else
         {
@@ -109,8 +113,38 @@ public class TileManager : MonoBehaviour
             {
                 stats.SetActive(false);
                 buildButton.SetActive(false);
+                selector.SetActive(false);
             }
         }
+    }
+
+    public void DeactivateUi()
+    {
+        stats.SetActive(false);
+        buildButton.SetActive(false);
+        selector.SetActive(false);
+    }
+
+    private string GetColoredTextByDistance(int d)
+    {
+        if (d == -1)
+        {
+            return "";
+        }
+
+        if (d<= 4)
+        {
+            return "<color=#00ff00>" + d.ToString() + "</color>(very close)";
+        }else if(d<= 8)
+        {
+            return "<color=#ffff66>" + d.ToString() + "</color>(far)";
+        }
+        else
+        {
+            return "<color=#ff0000>" + d.ToString() + "</color>(too far)";
+        }
+
+
     }
 
     public int GetClosestDistance(HexTile startHex, HexTileSettings.TileType type)
@@ -130,13 +164,11 @@ public class TileManager : MonoBehaviour
             {
                 HexTile currentHex = queue.Dequeue();
 
-                // Verificar si el hexágono actual es un tile de agua
                 if (IsWaterTile(currentHex, type))
                 {
                     return distance;
                 }
 
-                // Agregar hexágonos vecinos no visitados a la cola
                 foreach (HexTile neighborHexTile in currentHex.neighbours)
                 {
                     if (!visited.Contains(neighborHexTile))
@@ -146,13 +178,13 @@ public class TileManager : MonoBehaviour
                     }
                 }
             }
-            distance++; // Incrementar la distancia después de cada nivel de búsqueda
+            distance++; // increase at each level of search
         }
 
-        return -1; // Si no se encuentra ningún tile de agua
+        return -1; // if not found
     }
 
-    // Verificar si un hexágono es un tile de agua
+    //call to check te type of the tile
     private bool IsWaterTile(HexTile hex, HexTileSettings.TileType type)
     {
         if (hex != null && hex.tileType == type)
@@ -164,8 +196,10 @@ public class TileManager : MonoBehaviour
 
     public void StartSettlement()
     {
+        Debug.Log("Here");
+        selector.SetActive(false);
         settlementIsUp = true;
-        selectedTile.NewType = HexTileSettings.TileType.Castle;
+        selectedTile.NewType = HexTileSettings.TileType.Village;
         _controller.animationClips[0].events[0].functionName = nameof(HexTile.ChangeTileOnAnimation);
         Animator anim = selectedTile.gameObject.AddComponent<Animator>();
         anim.runtimeAnimatorController = _controller;
