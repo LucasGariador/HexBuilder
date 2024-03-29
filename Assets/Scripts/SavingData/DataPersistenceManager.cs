@@ -6,8 +6,6 @@ public class DataPersistenceManager : MonoBehaviour
 {
     public static DataPersistenceManager Instance { get; private set; }
 
-    private GameData gameData;
-
     void Awake()
     {
         if (Instance != null)
@@ -24,16 +22,14 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void NewGame()
     {
-        this.gameData = new GameData();
     }
 
     public void LoadGame()
     {
-        if(gameData == null)
-        {
+
             Debug.Log("No data was found, Initializing data to defaults.");
             NewGame();
-        }
+
     }
 
     public void SaveGame()
