@@ -196,7 +196,6 @@ public class TileManager : MonoBehaviour
 
     public void StartSettlement()
     {
-        Debug.Log("Here");
         selector.SetActive(false);
         settlementIsUp = true;
         selectedTile.NewType = HexTileSettings.TileType.Village;
