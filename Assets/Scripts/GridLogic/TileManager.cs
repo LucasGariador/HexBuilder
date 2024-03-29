@@ -127,9 +127,9 @@ public class TileManager : MonoBehaviour
 
     private string GetColoredTextByDistance(int d)
     {
-        if (d == -1)
+        if (d == 51)
         {
-            return "";
+            return "Not available";
         }
 
         if (d<= 4)
@@ -181,7 +181,7 @@ public class TileManager : MonoBehaviour
             distance++; // increase at each level of search
         }
 
-        return -1; // if not found
+        return 51; // if not found
     }
 
     //call to check te type of the tile

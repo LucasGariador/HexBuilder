@@ -69,7 +69,7 @@ public class HexGrid : MonoBehaviour
         TileManager.instance.InitializeGrid();
     }
 
-    private void AddBiomeControll(int amountBiomes)
+    private void AddBiomeControll(int amountBiomes) //generate control points for the biomes
     {
         try
         {
