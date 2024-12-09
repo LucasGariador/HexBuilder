@@ -29,7 +29,7 @@ public class CombatUI : MonoBehaviour
         }
 
         // Crear un botón para cada enemigo
-        foreach (var entity in FindObjectsOfType<Enemy>())
+        foreach (var entity in FindObjectsByType<Enemy>(FindObjectsSortMode.None))
         {
             GameObject buttonGO = new GameObject("TargetButton");
             Button button = buttonGO.AddComponent<Button>();

@@ -11,7 +11,7 @@ public class TurnManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<TurnManager>();
+                instance = FindAnyObjectByType<TurnManager>();
                 if (instance == null)
                 {
                     GameObject go = new GameObject("TurnManager");

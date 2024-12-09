@@ -9,7 +9,7 @@ public class Player : ShipBehaiviour
         if (actions.Count > 0)
         {
             Action action = actions[0];
-            ShipBehaiviour target = FindObjectOfType<Enemy>(); // Simplified target selection
+            ShipBehaiviour target = FindAnyObjectByType<Enemy>(); // Simplified target selection
             if (target != null && target.Health > 0)
             {
                 action.Execute(this, target);
