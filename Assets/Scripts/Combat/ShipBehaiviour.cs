@@ -11,6 +11,7 @@ public abstract class ShipBehaiviour : MonoBehaviour
 
     public string ShipName { get; private set; }
 
+    public ShipSize ShipSize { get; private set; }
     protected void Start()
     {
         if (shipData != null)
@@ -18,6 +19,7 @@ public abstract class ShipBehaiviour : MonoBehaviour
             Health = shipData.health;
             Speed = shipData.speed;
             ShipName = shipData.shipName;
+            ShipSize = shipData.shipSize;
         }
         else
         {
@@ -32,7 +34,13 @@ public abstract class ShipBehaiviour : MonoBehaviour
         {
             Debug.Log($"{ShipName} has died.");
             TurnManager.Instance.RemoveEntity(this);
+            this.GetDestroyed();
         }
+    }
+   
+    public void GetDestroyed()
+    {
+        //Animaciones de destruccion y sonido
     }
 
     public void ModifySpeed(int amount)

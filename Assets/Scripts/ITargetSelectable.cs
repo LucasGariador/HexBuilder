@@ -1,10 +1,6 @@
 public interface ITargetSelectable
 {
-    public void OnHighlightTarget()
-    {
-    }
+    public abstract void OnHighlightTarget();
 
-    public void OnSelectTarget()
-    {
-    }
+    public abstract void OnSelectTarget();
 }

@@ -6,5 +6,7 @@ public class ShipData : ScriptableObject
     public int health;
     public int speed;
     public string shipName;
+
+    public ShipSize shipSize;
 }
 
