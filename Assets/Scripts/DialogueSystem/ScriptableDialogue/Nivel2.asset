@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-553254184243521941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: 8c22b080-90c8-46be-a03f-a4ddd5b808c7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: dauishda
+  children:
+  - c57b1443-bdb4-48f7-ac1c-219e4256dd2a
+  rect:
+    serializedVersion: 2
+    x: 374
+    y: 334
+    width: 200
+    height: 100
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73643a91f855b0343a989b3772d99fd5, type: 3}
+  m_Name: Nivel2
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 5227555696605772414}
+  - {fileID: 481089684461780461}
+  - {fileID: -553254184243521941}
+  - {fileID: 5431799439492080828}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &481089684461780461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: 894957eb-2ba0-4cc4-b192-e63569e45b5f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: dbajdgba
+  children:
+  - c57b1443-bdb4-48f7-ac1c-219e4256dd2a
+  rect:
+    serializedVersion: 2
+    x: 384
+    y: 55
+    width: 200
+    height: 100
+--- !u!114 &5227555696605772414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: f3390aa6-b7a6-4373-a187-f6f66e236a7c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hola
+  children:
+  - 894957eb-2ba0-4cc4-b192-e63569e45b5f
+  - 8c22b080-90c8-46be-a03f-a4ddd5b808c7
+  rect:
+    serializedVersion: 2
+    x: 107
+    y: 200
+    width: 200
+    height: 100
+--- !u!114 &5431799439492080828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: c57b1443-bdb4-48f7-ac1c-219e4256dd2a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: fdsfsdf
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 689
+    y: 219
+    width: 200
+    height: 100

@@ -5,6 +5,7 @@ using static HexTileSettings;
 
 public class HexGrid : MonoBehaviour
 {
+
     [Header("Grid Settings")]
     public Vector2Int gridSize;
     public float radius = 1f;
@@ -53,13 +54,22 @@ public class HexGrid : MonoBehaviour
 
                 // Offset value is used to get diferents positions on the noise
                 float perlinValue = Mathf.PerlinNoise((x + xOffset) * 0.1f, (y + yOffset) * 0.1f);
-                TileType tileType = GetTileType(perlinValue, biome);
+                TileType tileType;
+
+                if (y == gridSize.y / 2 && x == gridSize.x / 2)
+                {
+                    tileType = TileType.MainStation;
+                }
+                else
+                {
+                    tileType = GetTileType(perlinValue, biome);
+                }
 
                 GameObject tile = new($"Hex C{x}, R{y}");
                 HexTile hextile = tile.AddComponent<HexTile>();
                 hextile.settings = settings;
                 hextile.tileType = tileType;
-                hextile.AddTile();
+                hextile.RefreshTile();
                 hextile.offsetCoordinate = new Vector2Int(x, y);
                 tile.transform.position = GetPositionForHexFromCoordinate(x, y);
                 hextile.cubeCoordinate = OffsetToCube(hextile.offsetCoordinate);
@@ -87,7 +97,7 @@ public class HexGrid : MonoBehaviour
 
     private Biomes GetClosestControl(Vector2 vector2)
     {
-        Biomes biome = Biomes.GreenLand;
+        Biomes biome = Biomes.Early;
         float distance = 100f;
         for (int index = 0; index < biomeType.Count; index++)
         {
@@ -102,18 +112,18 @@ public class HexGrid : MonoBehaviour
         return biome;
     }
 
-        private TileType GetTileType(float perlinValue, Biomes biome)
-        {
+    private TileType GetTileType(float perlinValue, Biomes biome)
+    {
         // Returns the corresponding tiletype, acording to his threshold value an biome type
-        foreach (var threshold in settings.GetThreshold(biome))
+    foreach (var threshold in settings.GetThreshold(biome))
         {
             if (perlinValue < threshold.Value)
             {
-                return threshold.Key;
-            }
+            return threshold.Key;
         }
-        return TileType.Land; // Returns Land by DEFAULT
-        }
+    }
+        return TileType.Empty; // Returns Land by DEFAULT
+    }
 
     public static Vector3Int OffsetToCube(Vector2Int offset)
     {

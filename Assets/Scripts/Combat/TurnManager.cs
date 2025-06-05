@@ -7,6 +7,7 @@ public class TurnManager : MonoBehaviour
     private static TurnManager instance;
 
     private ShipBehaiviour SelectedTarget;
+    public ShipBehaiviour CurrentShip { get; private set; }
     public static TurnManager Instance
     {
         get
@@ -31,6 +32,7 @@ public class TurnManager : MonoBehaviour
     public TurnManager()
     {
         turnOrder = new List<ShipBehaiviour>();
+        Debug.Log("");
     }
 
     public void InitializeTurnOrder(List<ShipBehaiviour> entities)
@@ -53,12 +55,12 @@ public class TurnManager : MonoBehaviour
     {
         if (turnOrder.Count == 0 || gameisOver) return;
 
-        ShipBehaiviour currentEntity = turnOrder[0];
-        currentEntity.TakeTurn();
+        CurrentShip = turnOrder[0];
+        CurrentShip.TakeTurn();
 
         // Remove the current entity and reinsert it at the end without reordering
         turnOrder.RemoveAt(0);
-        turnOrder.Add(currentEntity);
+        turnOrder.Add(CurrentShip);
 
 
         // Verifica el estado del combate

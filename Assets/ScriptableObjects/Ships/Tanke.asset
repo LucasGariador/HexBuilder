@@ -15,3 +15,4 @@ MonoBehaviour:
   health: 20
   speed: 2
   shipName: Tanke
+  shipSize: 2

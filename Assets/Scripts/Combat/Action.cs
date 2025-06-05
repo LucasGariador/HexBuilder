@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class Action : ScriptableObject
@@ -6,4 +7,9 @@ public abstract class Action : ScriptableObject
     public int actionCost;
 
     public abstract void Execute(ShipBehaiviour user, ShipBehaiviour target);
+
+    internal void Invoke()
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -24,6 +24,7 @@ public class CameraSelectionRaycaster : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
+            if (hit.collider == null) return;
             HandleRaycastHit(hit);
         }
     }
@@ -39,6 +40,8 @@ public class CameraSelectionRaycaster : MonoBehaviour
 
         if (hitTransform.TryGetComponent<ITargetSelectable>(out _currentTarget) && Input.GetMouseButtonDown(0))
         {
+//            if (IsCurrentTurnShip(hitTransform)) return;
+
             _currentTarget.OnSelectTarget();
 
             if (hitTransform.CompareTag("Ship"))
@@ -54,7 +57,7 @@ public class CameraSelectionRaycaster : MonoBehaviour
 
         if (shipBehaviour != null)
         {
-            _selectorSize.Initialize(shipTransform.gameObject, shipBehaviour.ShipSize);
+            _selectorSize.Initialize(shipTransform.gameObject, shipBehaviour.ShipSize, shipBehaviour is Player);
             TurnManager.Instance.SetTarget(shipBehaviour);
         }
     }

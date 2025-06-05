@@ -8,11 +8,20 @@ public class SelectorSize : MonoBehaviour
     private GameObject selectorObject;
 
     [Tooltip("ShipsSize")]
-    public Vector3 small;
-    public Vector3 medium;
-    public Vector3 large;
+    [SerializeField]
+    private Vector3 small;
+    [SerializeField]
+    private Vector3 medium;
+    [SerializeField]
+    private Vector3 large;
 
-    public void Initialize(GameObject target, ShipSize size)
+    [Tooltip("Materials")]
+    [SerializeField]
+    private Material enemyMat;
+    [SerializeField]
+    private Material playerMat;
+
+    public void Initialize(GameObject target, ShipSize size, bool isplayer)
     {
         shipSize = size;
         if (target != null)
@@ -32,8 +41,13 @@ public class SelectorSize : MonoBehaviour
                     break;
             }
         }
+        Material mat = isplayer ? playerMat : enemyMat;
+        foreach(Renderer r in selectorObject.GetComponentsInChildren<Renderer>())
+        {
+            r.material = mat;
+        }
 
-        //Moverlo a la posicion del objetivo
+
         selectorObject.transform.position = target.transform.position;
     }
 }

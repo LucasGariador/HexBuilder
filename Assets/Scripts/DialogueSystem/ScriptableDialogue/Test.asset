@@ -1,0 +1,223 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9062555769742553212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: 560bae42-f2ea-4295-b209-c329aec9dd90
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Todo bien
+  children:
+  - 8d609484-ee0e-42a8-a1a7-d64e863ef78c
+  rect:
+    serializedVersion: 2
+    x: 273
+    y: 94
+    width: 200
+    height: 100
+--- !u!114 &-4250032981449820207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: aa23543f-7440-4fc8-b85e-806cee7e77ab
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Todo mal
+  children:
+  - ae309900-24d7-480f-ae0e-63fae6d16a11
+  rect:
+    serializedVersion: 2
+    x: 283
+    y: 534
+    width: 200
+    height: 100
+--- !u!114 &-2455958054879910917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: 7e4dc27e-caef-4f60-af1a-54b6bb6a01b4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Chau
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1365
+    y: 367
+    width: 200
+    height: 100
+--- !u!114 &-1300440089259929164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: 8d609484-ee0e-42a8-a1a7-d64e863ef78c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Uh que bueno, seguro tenes dolares
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 523
+    y: 94
+    width: 200
+    height: 100
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73643a91f855b0343a989b3772d99fd5, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 6032340161748011891}
+  - {fileID: -9062555769742553212}
+  - {fileID: 4493419882265358945}
+  - {fileID: -4250032981449820207}
+  - {fileID: 3193661317459798444}
+  - {fileID: 3997521939654281068}
+  - {fileID: 5029911106335149062}
+  - {fileID: -1300440089259929164}
+  - {fileID: -2455958054879910917}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &3193661317459798444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: d217eabf-0edf-45a5-893b-3cef390a9a40
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Tengo frio
+  children:
+  - 3fb84087-3934-4ceb-8603-8ca9c74f7753
+  rect:
+    serializedVersion: 2
+    x: 814
+    y: 242
+    width: 200
+    height: 100
+--- !u!114 &3997521939654281068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: 3fb84087-3934-4ceb-8603-8ca9c74f7753
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Que mal
+  children:
+  - 7e4dc27e-caef-4f60-af1a-54b6bb6a01b4
+  rect:
+    serializedVersion: 2
+    x: 1114
+    y: 367
+    width: 200
+    height: 100
+--- !u!114 &4493419882265358945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: ae309900-24d7-480f-ae0e-63fae6d16a11
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Uh, que paso
+  children:
+  - d217eabf-0edf-45a5-893b-3cef390a9a40
+  - 763b809f-aac8-49f6-9e7f-245086f1af22
+  rect:
+    serializedVersion: 2
+    x: 520
+    y: 390
+    width: 200
+    height: 100
+--- !u!114 &5029911106335149062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: 763b809f-aac8-49f6-9e7f-245086f1af22
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Tengo calor
+  children:
+  - 3fb84087-3934-4ceb-8603-8ca9c74f7753
+  rect:
+    serializedVersion: 2
+    x: 816
+    y: 459
+    width: 200
+    height: 100
+--- !u!114 &6032340161748011891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2270aca0e267a409f23c91eea41cac, type: 3}
+  m_Name: 87af23a5-e3a4-4649-a2a8-d3572e313a4f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hola, como estas?
+  children:
+  - 560bae42-f2ea-4295-b209-c329aec9dd90
+  - aa23543f-7440-4fc8-b85e-806cee7e77ab
+  rect:
+    serializedVersion: 2
+    x: 22
+    y: 186
+    width: 200
+    height: 100

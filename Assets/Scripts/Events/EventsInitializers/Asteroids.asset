@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8295ffed4bb29f4abdc3cc6f9f0fd78, type: 3}
+  m_Name: Asteroids
+  m_EditorClassIdentifier: 
+  eventName: Floating Minefield
+  eventDescription: You drift too close to a long-forgotten warzone filled with inactive
+    mines.
+  eventType: 0
+  saveDC: 15
+  eventIcon: {fileID: 1792980042, guid: db8a4d58d972f8b4287598d540416767, type: 3}

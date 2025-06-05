@@ -32,6 +32,7 @@ public abstract class ShipBehaiviour : MonoBehaviour
         Health -= damage;
         if (Health <= 0)
         {
+            Health = 0;
             Debug.Log($"{ShipName} has died.");
             TurnManager.Instance.RemoveEntity(this);
             this.GetDestroyed();
