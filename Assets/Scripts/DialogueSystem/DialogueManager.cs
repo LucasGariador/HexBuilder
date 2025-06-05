@@ -6,25 +6,26 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
+    private PlayerConversant playerConversant;
+    [SerializeField] private float delayBeforeEnd = 2f; // Tiempo de espera antes de finalizar el diálogo
 
     private void Awake()
     {
         Instance = this;
+        playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
     }
 
-    public void StartDialogue(Dialogue dialogue, Action onDialogueFinished)
+    public void StartDialogue(Dialogue dialogue, System.Action onDialogueFinished)
     {
-        // Mostrar diálogo con tu sistema
-        // Al finalizar:
+        playerConversant.StartDialogue(dialogue);
+
         StartCoroutine(RunDialogue(dialogue, onDialogueFinished));
     }
 
-    private IEnumerator RunDialogue(Dialogue dialogue, Action onFinished)
+    private IEnumerator RunDialogue(Dialogue dialogue, System.Action onFinished)
     {
-        // Reproducís cada línea, esperás input del jugador...
-
-        yield return new WaitUntil(() => true);
-
+        yield return new WaitUntil(() => playerConversant.HasEnded());
+        yield return new WaitForSeconds(delayBeforeEnd); // Espera un segundo antes de finalizar
         onFinished?.Invoke();
     }
 

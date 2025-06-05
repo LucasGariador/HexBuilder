@@ -16,5 +16,10 @@ MonoBehaviour:
   eventDescription: You drift too close to a long-forgotten warzone filled with inactive
     mines.
   eventType: 0
+  hasDialogue: 1
+  dialogue: {fileID: 11400000, guid: 82df7f9d6e7b4c640bccae16244dad4b, type: 2}
+  successText: Salios bien
+  failText: Salio mal
+  statType: 1
   saveDC: 15
   eventIcon: {fileID: 1792980042, guid: db8a4d58d972f8b4287598d540416767, type: 3}

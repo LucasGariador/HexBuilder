@@ -7,26 +7,42 @@ using UnityEngine;
 public class PlayerOnWorldMap : MonoBehaviour
 {
     public HexTile currentTile;
-    [SerializeField] private int fuel;
 
-    public int GetCurrentFuel(){ return fuel; }
+    public StatsPlayer stats = new StatsPlayer();
+    public ShipResources resources = new ShipResources();
+    public int GetCurrentFuel(){ return resources.fuel; }
 
     public float moveSpeed = 2f; // velocidad de movimiento
 
     private bool isMoving = false;
+    private CameraController cameraController;
 
+    private void Start()
+    {
+        cameraController = Camera.main.GetComponent<CameraController>();
+        if (cameraController == null)
+        {
+            Debug.LogError("CameraController not found on main camera.");
+        }
+    }
     public void StartPathMovement(List<HexTile> path)
     {
         if (!isMoving && path != null && path.Count > 0)
             StartCoroutine(MoveAlongPath(path));
     }
 
+    public int GetStat(StatType type)
+    {
+        return stats.GetStat(type);
+    }
+
     private IEnumerator MoveAlongPath(List<HexTile> path)
     {
         isMoving = true;
-        Camera.main.GetComponent<CameraController>()?.StopCameraController();
+        cameraController.StopCameraController();
         for (int i = 0; i < path.Count; i++)
         {
+            resources.fuel -= 1;
             HexTile tile = path[i];
             Vector3 startPos = transform.position;
             Vector3 endPos = tile.transform.position + new Vector3(0f, 0.3f, 0f);
@@ -74,7 +90,7 @@ public class PlayerOnWorldMap : MonoBehaviour
 
             currentTile = tile;
         }
-        Camera.main.GetComponent<CameraController>()?.StartCameraController();
+        cameraController.StartCameraController();
         isMoving = false;
         CheckFotEventTile(path.Last());
     }

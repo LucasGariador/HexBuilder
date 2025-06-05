@@ -10,27 +10,38 @@ namespace Atropos.Dialogue
     {
         [SerializeField] private Dialogue currentDialogue;
         DialogueNode currentNode = null;
-        bool isChoosing = false;
-        bool hasStarted = false;
+        private bool isChoosing = false;
+        private bool hasStarted = false;
+        private bool hasEnded = false;
 
         public event System.Action OnConversationUpdated;
 
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(2);
-            StartDialogue(currentDialogue);
-        }
-
         public void StartDialogue(Dialogue newDialogue)
         {
-            if(currentDialogue == null) return;
-
+            if (newDialogue == null)
+            {
+                Debug.LogError("Cannot start a dialogue that is null.");
+                return;
+            }
             currentDialogue = newDialogue;
             currentNode = currentDialogue.GetRootNode();
             isChoosing = false;
             hasStarted = true;
+            hasEnded = false;
             OnConversationUpdated();
         }
+
+        public void EndConversation()
+        {
+            hasStarted = false;
+            hasEnded = true;
+            isChoosing = false;
+            currentDialogue = null;
+            currentNode = null;
+
+            OnConversationUpdated?.Invoke();
+        }
+
 
         public bool IsActive()
         {
@@ -46,6 +57,12 @@ namespace Atropos.Dialogue
         {
             return isChoosing;
         }
+        public bool HasEnded()
+        {
+            return hasEnded;
+        }
+
+
 
         public string GetText()
         {

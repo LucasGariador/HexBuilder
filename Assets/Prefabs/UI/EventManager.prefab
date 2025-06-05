@@ -1,5 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &934924227939566103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4331016059699440929}
+  - component: {fileID: 1943837946211856674}
+  - component: {fileID: 5075718454175838784}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4331016059699440929
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934924227939566103}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1598930842466061637}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -299.49918, y: 6.3787}
+  m_SizeDelta: {x: 99.4286, y: 86.5924}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1943837946211856674
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934924227939566103}
+  m_CullTransparentMesh: 1
+--- !u!114 &5075718454175838784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934924227939566103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1792980042, guid: db8a4d58d972f8b4287598d540416767, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1052260430923448818
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05517978, g: 0.3228338, b: 0.3773585, a: 0.1764706}
+  m_Color: {r: 0.06653929, g: 0.027450977, b: 0.101960786, a: 0.8784314}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -204,7 +279,7 @@ GameObject:
   - component: {fileID: 677533645050566715}
   - component: {fileID: 6461077974210686551}
   m_Layer: 5
-  m_Name: roll_button
+  m_Name: Resolve_event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,6 +418,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 749311506734160464}
+  - {fileID: 4331016059699440929}
   m_Father: {fileID: 4718563503075988701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -563,8 +639,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0017242, y: 0.00025368}
-  m_SizeDelta: {x: 712.15, y: 116.49}
+  m_AnchoredPosition: {x: 45.72614, y: 10.6639}
+  m_SizeDelta: {x: 591.0243, y: 95.1628}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2078512270736571032
 CanvasRenderer:
@@ -621,10 +697,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.9
+  m_fontSize: 72
   m_fontSizeBase: 54.9
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -929,7 +1005,12 @@ MonoBehaviour:
   eventPanel: {fileID: 1856526789333353797}
   titleText: {fileID: 7809565317400556417}
   descriptionText: {fileID: 180012898002234430}
-  rollButton: {fileID: 6461077974210686551}
+  statsText: {fileID: 1608901110236321582}
+  eventImage: {fileID: 5075718454175838784}
+  resolveEvent: {fileID: 6461077974210686551}
+  rollButton: {fileID: 0}
+  diceRoller: {fileID: 0}
+  rollcamera: {fileID: 0}
 --- !u!1 &8831236671260141308
 GameObject:
   m_ObjectHideFlags: 0

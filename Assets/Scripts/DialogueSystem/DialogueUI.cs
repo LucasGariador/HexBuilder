@@ -14,7 +14,7 @@ namespace Atropos.UI
         [SerializeField] float typingSpeed = 0.1f;
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
-
+        [SerializeField] GameObject dialoguePanel;
 
         [SerializeField] PortraitEffect playerPortrait;
         [SerializeField] PortraitEffect aiPortrait;
@@ -25,41 +25,54 @@ namespace Atropos.UI
         {
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
             playerConversant.OnConversationUpdated += UpdateUi;
+            dialoguePanel.SetActive(false);
         }
 
         private void Update()
         {
-            if (playerConversant) 
-            {
-                if (playerConversant.IsChoosing() || !playerConversant.HasStarted()) return;
+            if (playerConversant == null || !playerConversant.HasStarted() || playerConversant.IsChoosing()) return;
 
-                if (finishedTyping && Input.GetMouseButtonDown(0) && playerConversant.HasNext())
+            if (!finishedTyping) return;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (playerConversant.HasNext())
                 {
                     playerConversant.Next();
+                }
+                else
+                {
+                    playerConversant.EndConversation(); // Método que podés crear para encapsular lógica
                 }
             }
         }
 
 
 
+
         private void UpdateUi()
         {
-            if (!playerConversant.IsActive())
+            if (!playerConversant.IsActive() || playerConversant.HasEnded())
             {
+                dialoguePanel.SetActive(false);
                 return;
             }
+
+            if (dialoguePanel.activeSelf == false) 
+            {
+            dialoguePanel.SetActive(true);
+            }
+
             iaResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 
             if (playerConversant.IsChoosing())
             {
                 BuildChoiceList();
-                Debug.Log("playerTalking");
             }
             else
             {
                 TypewriterEffect();
-                Debug.Log("AI Talking");
             }
         }
 
